@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ITAssetTracking/app/src/main/res/drawable/assetsdailogbox.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ITAssetTracking/app/src/main/res/drawable/custom_btn.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ITAssetTracking/app/src/main/res/drawable/custom_card.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ITAssetTracking/app/src/main/res/drawable/custom_edittext.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ITAssetTracking/app/src/main/res/drawable/ic_baseline_arrow_drop_down_24.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ITAssetTracking/app/src/main/res/drawable/ic_baseline_calendar_today_24.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ITAssetTracking/app/src/main/res/drawable/ic_baseline_cleaning_services_24.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ITAssetTracking/app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.1046875" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ITAssetTracking/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.1046875" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ITAssetTracking/app/src/main/res/drawable/spinner.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ITAssetTracking/app/src/main/res/drawable/spinnerbg.xml" value="0.25" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ITAssetTracking/app/src/main/res/drawable/spinnersla.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ITAssetTracking/app/src/main/res/layout/activity_asset_register.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ITAssetTracking/app/src/main/res/layout/activity_audit_detrails.xml" value="0.15" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ITAssetTracking/app/src/main/res/layout/activity_audit_form.xml" value="0.1921875" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ITAssetTracking/app/src/main/res/layout/activity_identifyy_form.xml" value="0.22" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ITAssetTracking/app/src/main/res/layout/activity_inventory_form.xml" value="0.25" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ITAssetTracking/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ITAssetTracking/app/src/main/res/layout/activity_register_asset.xml" value="0.25" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ITAssetTracking/app/src/main/res/layout/activity_searchform.xml" value="0.1921875" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ITAssetTracking/app/src/main/res/layout/assetdailogbox.xml" value="0.1921875" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ITAssetTracking/app/src/main/res/layout/fragment_previous_audit.xml" value="0.178125" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ITAssetTracking/app/src/main/res/layout/fragment_upcoming_audit.xml" value="0.1921875" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ITAssetTracking/app/src/main/res/layout/list.xml" value="0.33" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ITAssetTracking/app/src/main/res/layout/previousauditlist.xml" value="0.1921875" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
