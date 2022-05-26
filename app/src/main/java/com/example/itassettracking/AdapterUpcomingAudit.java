@@ -50,10 +50,10 @@ public class AdapterUpcomingAudit extends RecyclerView.Adapter<AdapterUpcomingAu
         String date1 = separated[0];
 
 
-        holder.language.setText(model.getRemarks());
-        holder.publisher.setText(date1);
-        holder.head_title.setText(model.getAuditor());
-        holder.head_subject.setText(model.getAuditId());
+        holder.language.setText(model.getTotal());
+        holder.publisher.setText(model.getRemarks());
+        holder.head_title.setText(date1);
+        holder.head_subject.setText(model.getAuditor());
         String currentDate = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
 
         holder.head_subject.setTextColor(Color.parseColor("#000000"));
@@ -65,10 +65,10 @@ public class AdapterUpcomingAudit extends RecyclerView.Adapter<AdapterUpcomingAu
         holder.h3.setTextColor(Color.parseColor("#000000"));
         holder.h2.setTextColor(Color.parseColor("#000000"));
         holder.h1.setTextColor(Color.parseColor("#000000"));
-        holder.h1.setText("Audit ID :");
-        holder.h2.setText("Auditor :");
-        holder.h3.setText("Audit Date :");
-        holder.h4.setText("Remark :");
+        holder.h1.setText("Auditor :");
+        holder.h2.setText("Audit Date :");
+        holder.h3.setText("Remark :");
+        holder.h4.setText("Total Item :");
 
 
 
@@ -76,13 +76,13 @@ public class AdapterUpcomingAudit extends RecyclerView.Adapter<AdapterUpcomingAu
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                if (currentDate.matches(date1)) {
+                if (currentDate.matches(date1)) {
                     Intent i = new Intent(c, AuditDetrails.class);
                     i.putExtra("keyId", model.getAuditId());
                     c.startActivity(i);
-//                } else {
-//                    Toast.makeText(c, "You can't Audit Today...", Toast.LENGTH_SHORT).show();
-//                }
+                } else {
+                    Toast.makeText(c, "You can't Audit Today...", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

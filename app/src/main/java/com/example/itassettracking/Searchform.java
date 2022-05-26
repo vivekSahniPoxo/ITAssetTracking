@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -46,8 +47,8 @@ public class Searchform extends AppCompatActivity {
     String buttonText;
     Handler handler;
     Spinner parameter;
-    String[] value = new String[]{"Rfid", "AssetName", "AssetId", "CategoryName"};
-    String paravalue;
+    String[] value = new String[]{"Rfid", "Asset Name", "Asset Id", "Category Name"};
+    String paravalue="";
     RecyclerView recyclerView;
     List<SearchDataModel> list_data_Recyclerview;
     Adapter_list adapter_list;
@@ -82,7 +83,16 @@ public class Searchform extends AppCompatActivity {
         parameter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                paravalue = adapterView.getItemAtPosition(i).toString();
+                if (i == 0) {
+                    paravalue="Rfid";
+                }else if (i == 1) {
+                    paravalue="AssetName";
+                }else if (i == 2) {
+                    paravalue="AssetId";
+                }else if (i == 3) {
+                    paravalue="CategoryName";
+                }
+//                paravalue = adapterView.getItemAtPosition(i).toString();
             }
 
             @Override
@@ -140,6 +150,7 @@ public class Searchform extends AppCompatActivity {
                     dialog.show();
                     dialog.setMessage(getString(R.string.Dialog_Text));
                     dialog.setCancelable(false);
+                    hideSoftKeyBoard();
 
                 } else {
                     devicdename.setError("Enter Input...");
@@ -301,6 +312,14 @@ public class Searchform extends AppCompatActivity {
                 return true;
             default:
                 return super.onKeyUp(keyCode, event);
+        }
+    }
+
+    private void hideSoftKeyBoard() {
+        InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+
+        if(imm.isAcceptingText()) { // verify if the soft keyboard is open
+            imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
         }
     }
 }
