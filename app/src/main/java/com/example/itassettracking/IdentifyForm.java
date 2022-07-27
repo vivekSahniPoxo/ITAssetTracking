@@ -91,58 +91,38 @@ public class IdentifyForm extends AppCompatActivity {
         dialog = new ProgressDialog(this);
 
         //Listeners
-        scan_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Scan();
-            }
-        });
+        scan_button.setOnClickListener(v -> Scan());
 
-        Retry.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
+        Retry.setOnClickListener(v -> {
+            try {
 //                    iuhfService.inventoryStop();
 //                    iuhfService.closeDev();
 //                    Toast.makeText(Identify_Form.this, "Start Fetching Data...", Toast.LENGTH_SHORT).show();
-                    if (result != null) {
-                        FetchData(result);
-                        dialog.show();
-                        dialog.setMessage("Fetching...");
-                        dialog.setCancelable(false);
-                    } else {
+                if (result != null) {
+                    FetchData(result);
+                    dialog.show();
+                    dialog.setMessage("Fetching...");
+                    dialog.setCancelable(false);
+                } else {
 
-                        dialog.setMessage("List Already Clear");
-                        dialog.setCancelable(true);
-                        dialog.show();
+                    dialog.setMessage("List Already Clear");
+                    dialog.setCancelable(true);
+                    dialog.show();
 
-                    }
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
                 }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         });
 
-        NEW_data.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new AlertDialog.Builder(IdentifyForm.this)
-                        .setIcon(R.drawable.ic_baseline_cleaning_services_24)
-                        .setTitle("Quit")
-                        .setMessage("Are you sure you want to Clear the Data ?")
-                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-
-                                ClearData();
-
-                            }
-                        })
-                        .setNegativeButton("No", null)
-                        .show();
-            }
-        });
+        NEW_data.setOnClickListener(v -> new AlertDialog.Builder(IdentifyForm.this)
+                .setIcon(R.drawable.ic_baseline_cleaning_services_24)
+                .setTitle("Quit")
+                .setMessage("Are you sure you want to Clear the Data ?")
+                .setPositiveButton("Yes", (dialog, which) -> ClearData())
+                .setNegativeButton("No", null)
+                .show());
 
     }
     //Method For Clear Components
@@ -168,51 +148,48 @@ public class IdentifyForm extends AppCompatActivity {
     RequestQueue queue = Volley.newRequestQueue(this);
 
         String url = "http://164.52.223.163:4504/api/SearchAssets?Rfid=" + epcvalue;
-        StringRequest sr = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                try {
-                     JSONArray array = new JSONArray(response);
-                     JSONObject object = array.getJSONObject(0);
-                    String LibraryItemType1 = object.optString("orderNo");
-                    String BookAddedIn1 = object.optString("supplier");
-                    String BookCategory1 = object.optString("location");
-                    String ItemStatus1 = object.optString("manufacturer");
-                    String SubjectTitle1 = object.optString("company");
-                    String Language1 = object.optString("assetStatus");
-                    String Edition1 = object.optString("category");
-                    String Publisher1 = object.optString("model");
-                    String RFIDNo1 = object.optString("rfidNo");
-                    String AccessNo1 = object.optString("assetTag");
-                    String Author1 = object.optString("assetName");
-                    String Title1 = object.optString("assetId");
-                    String YearOfPublication1 = object.optString("purchaseDate");
-                    String EntryDate1 = object.optString("serialNo");
-                    LibraryItemType.setText(Language1);
-                    BookAddedIn.setText(BookCategory1);
-                    BookCategory.setText(Edition1);
-                    ItemStatus.setText(SubjectTitle1);
-                    SubjectTitle.setText(BookAddedIn1);
-                    Language.setText(RFIDNo1);
-                    Edition.setText(LibraryItemType1);
-                    Publisher.setText(LibraryItemType1);
-                    RFIDNo.setText(RFIDNo1);
-                    AccessNo.setText(Publisher1);
-                    Author.setText(ItemStatus1);
-                    Title.setText(Author1);
-                    YearOfPublication.setText(YearOfPublication1);
-                    EntryDate.setText(EntryDate1);
-                    dialog.dismiss();
+        StringRequest sr = new StringRequest(Request.Method.GET, url, response -> {
+            try {
+                 JSONArray array = new JSONArray(response);
+                 JSONObject object = array.getJSONObject(0);
+                String LibraryItemType1 = object.optString("orderNo");
+                String BookAddedIn1 = object.optString("supplier");
+                String BookCategory1 = object.optString("location");
+                String ItemStatus1 = object.optString("manufacturer");
+                String SubjectTitle1 = object.optString("company");
+                String Language1 = object.optString("assetStatus");
+                String Edition1 = object.optString("category");
+                String Publisher1 = object.optString("model");
+                String RFIDNo1 = object.optString("rfidNo");
+                String AccessNo1 = object.optString("assetTag");
+                String Author1 = object.optString("assetName");
+                String Title1 = object.optString("assetId");
+                String YearOfPublication1 = object.optString("purchaseDate");
+                String EntryDate1 = object.optString("serialNo");
+                LibraryItemType.setText(Language1);
+                BookAddedIn.setText(BookCategory1);
+                BookCategory.setText(Edition1);
+                ItemStatus.setText(SubjectTitle1);
+                SubjectTitle.setText(BookAddedIn1);
+                Language.setText(RFIDNo1);
+                Edition.setText(LibraryItemType1);
+                Publisher.setText(LibraryItemType1);
+                RFIDNo.setText(RFIDNo1);
+                AccessNo.setText(Publisher1);
+                Author.setText(ItemStatus1);
+                Title.setText(Author1);
+                YearOfPublication.setText(YearOfPublication1);
+                EntryDate.setText(EntryDate1);
+                dialog.dismiss();
 
-                    Log.e("response", response.toString());
-                } catch (Exception e) {
-                    Toast.makeText(IdentifyForm.this, "Parsing Error...", Toast.LENGTH_SHORT).show();
-                    e.printStackTrace();
-                    dialog.dismiss();
-                }
-
-
+                Log.e("response", response.toString());
+            } catch (Exception e) {
+                Toast.makeText(IdentifyForm.this, "No Data Found...", Toast.LENGTH_SHORT).show();
+                e.printStackTrace();
+                dialog.dismiss();
             }
+
+
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {

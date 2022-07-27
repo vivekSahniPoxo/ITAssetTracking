@@ -3,6 +3,9 @@ package com.example.itassettracking;
 public class SearchDataModel {
     String auditid,rfidNo,status,assetId,assetName,assetTag,serialNo,model,category,assetStatus,company,manufacturer,location,warranty,purchaseCost,orderNo,purchaseDate,notes,StatusF="False",Color;
 
+    public SearchDataModel() {
+    }
+
     public SearchDataModel(String auditid, String rfidNo, String status, String assetId, String assetName, String assetTag, String serialNo, String model, String category, String assetStatus, String company, String manufacturer, String location, String warranty, String purchaseCost, String orderNo, String purchaseDate, String notes) {
         this.auditid = auditid;
         this.rfidNo = rfidNo;

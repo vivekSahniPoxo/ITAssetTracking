@@ -17,10 +17,10 @@ import java.util.List;
 
 public class DetailsAdapter extends RecyclerView.Adapter<DetailsAdapter.Myviewholder> {
     List<String> templist;
-    List<SearchDataModel> list;
+    List<DetailModel> list;
     Context context;
 
-    public DetailsAdapter(List<String> tempList_Inventory, List<SearchDataModel> list, Context context) {
+    public DetailsAdapter(List<String> tempList_Inventory, List<DetailModel> list, Context context) {
         this.list = list;
         this.context = context;
         this.templist = tempList_Inventory;
@@ -35,15 +35,15 @@ public class DetailsAdapter extends RecyclerView.Adapter<DetailsAdapter.Myviewho
 
     @Override
     public void onBindViewHolder(@NonNull Myviewholder holder, int position) {
-        SearchDataModel model = list.get(position);
-        holder.language.setText(model.getPurchaseDate());
+        DetailModel model = list.get(position);
+        holder.language.setText(model.getLocation());
         holder.publisher.setText(model.getCategory());
         holder.head_title.setText(model.getModel());
         holder.head_subject.setText(model.getAssetName());
         holder.h1.setText("Asset Name :");
         holder.h2.setText("Asset Model :");
         holder.h3.setText("Asset Categories :");
-        holder.h4.setText("Purchase Cost :");
+        holder.h4.setText("Location :");
 
         //       Change color if Search Found
         if (model.getColor() == "Green") {
@@ -75,8 +75,11 @@ public class DetailsAdapter extends RecyclerView.Adapter<DetailsAdapter.Myviewho
     int bookFooundCount = 0;
 
     public int getFilter(Object search_value) {
+
+
+
         if (templist.contains(search_value)) {
-            for (SearchDataModel row : list) {
+            for (DetailModel row : list) {
 
                 if (row.getRfidNo().equals(search_value)) {
                     row.setColor("Green");
@@ -98,12 +101,12 @@ public class DetailsAdapter extends RecyclerView.Adapter<DetailsAdapter.Myviewho
         notifyItemRemoved(position);
     }
 
-    public void restoreItem(SearchDataModel item, int position) {
+    public void restoreItem(DetailModel item, int position) {
         list.add(position, item);
         notifyItemInserted(position);
     }
 
-    public List<SearchDataModel> getData() {
+    public List<DetailModel> getData() {
         return list;
     }
 

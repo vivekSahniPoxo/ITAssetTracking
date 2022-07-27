@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Base64;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
@@ -228,14 +230,14 @@ public class AssetRegister extends AppCompatActivity {
                 Scan()
         );
         uploadbtn.setOnClickListener(view -> TakePictue());
-        DatePickerDialog.OnDateSetListener date = (view, year, month, day) -> {
-            myCalendar.set(Calendar.YEAR, year);
-            myCalendar.set(Calendar.MONTH, month);
-            myCalendar.set(Calendar.DAY_OF_MONTH, day);
-            updateLabel();
+            DatePickerDialog.OnDateSetListener date = (view, year, month, day) -> {
+                myCalendar.set(Calendar.YEAR, year);
+                myCalendar.set(Calendar.MONTH, month);
+                myCalendar.set(Calendar.DAY_OF_MONTH, day);
+                updateLabel();
 
-        };
-        Datepurchase.setOnClickListener(view -> new DatePickerDialog(AssetRegister.this, date, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH)).show());
+            };
+            Datepurchase.setOnClickListener(view -> new DatePickerDialog(AssetRegister.this, date, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH)).show());
 
     }
 
@@ -277,10 +279,8 @@ public class AssetRegister extends AppCompatActivity {
         }
 
         ArrayAdapter<String> model = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ModelAsset1);
-
         // Drop down layout style - list view with radio button
         model.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
         // attaching data adapter to spinner
         AssetModel.setAdapter(model);
     }
@@ -463,6 +463,7 @@ public class AssetRegister extends AppCompatActivity {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.FROYO)
     public String getEncoded64ImageStringFromBitmap(Bitmap bitmap) {
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, 70, stream);
@@ -526,7 +527,7 @@ public class AssetRegister extends AppCompatActivity {
 //        obj.put("id", 0);
         obj.put("assetName", Assetnm.getText().toString().trim());
         obj.put("deviceImage", DeviceImage);
-        obj.put("assetTag", AssetTAg);
+        obj.put("rfidNo", AssetTAg);
         obj.put("serialNo", AssetSerialNumber.getText().toString().trim());
         obj.put("modelId", modelId);
         obj.put("categoryId", modelId);

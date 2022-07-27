@@ -79,6 +79,7 @@ public class AdapterUpcomingAudit extends RecyclerView.Adapter<AdapterUpcomingAu
                 if (currentDate.matches(date1)) {
                     Intent i = new Intent(c, AuditDetrails.class);
                     i.putExtra("keyId", model.getAuditId());
+                    i.putExtra("length", model.getTotal());
                     c.startActivity(i);
                 } else {
                     Toast.makeText(c, "You can't Audit Today...", Toast.LENGTH_SHORT).show();

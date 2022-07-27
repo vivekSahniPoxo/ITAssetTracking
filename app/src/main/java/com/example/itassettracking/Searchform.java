@@ -48,7 +48,7 @@ public class Searchform extends AppCompatActivity {
     Handler handler;
     Spinner parameter;
     String[] value = new String[]{"Rfid", "Asset Name", "Asset Id", "Category Name"};
-    String paravalue="";
+    String paravalue = "";
     RecyclerView recyclerView;
     List<SearchDataModel> list_data_Recyclerview;
     Adapter_list adapter_list;
@@ -84,13 +84,13 @@ public class Searchform extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if (i == 0) {
-                    paravalue="Rfid";
-                }else if (i == 1) {
-                    paravalue="AssetName";
-                }else if (i == 2) {
-                    paravalue="AssetId";
-                }else if (i == 3) {
-                    paravalue="CategoryName";
+                    paravalue = "Rfid";
+                } else if (i == 1) {
+                    paravalue = "AssetName";
+                } else if (i == 2) {
+                    paravalue = "AssetId";
+                } else if (i == 3) {
+                    paravalue = "CategoryName";
                 }
 //                paravalue = adapterView.getItemAtPosition(i).toString();
             }
@@ -296,16 +296,15 @@ public class Searchform extends AppCompatActivity {
         ItemTouchHelper itemTouchhelper = new ItemTouchHelper(swipeToDeleteCallback);
         itemTouchhelper.attachToRecyclerView(recyclerView);
     }
+
     @Override
     public boolean onKeyUp(int keyCode, KeyEvent event) {
         switch (keyCode) {
             case KeyEvent.KEYCODE_F1://KeyEvent { action=ACTION_UP, keyCode=KEYCODE_F1, scanCode=59, metaState=0, flags=0x8, repeatCount=0, eventTime=13517236, downTime=13516959, deviceId=1, source=0x101 }
                 buttonText = Readingbtn.getText().toString();
-                if (list_data_Recyclerview.size()>0)
-                {
+                if (list_data_Recyclerview.size() > 0) {
                     Scan(buttonText, handler);
-                }else
-                {
+                } else {
                     Toast.makeText(Searchform.this, "No Data Found For Scan", Toast.LENGTH_SHORT).show();
                 }
 
@@ -318,7 +317,7 @@ public class Searchform extends AppCompatActivity {
     private void hideSoftKeyBoard() {
         InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
 
-        if(imm.isAcceptingText()) { // verify if the soft keyboard is open
+        if (imm.isAcceptingText()) { // verify if the soft keyboard is open
             imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
         }
     }

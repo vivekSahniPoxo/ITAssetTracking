@@ -68,7 +68,7 @@ public class Adapter_list extends RecyclerView.Adapter<Adapter_list.myviewholder
             holder.h1.setTextColor(Color.parseColor("#FFFFFF"));
 
         } else {
-            holder.ListLayout.setBackgroundColor(Color.parseColor("#C6CFCF"));
+            holder.ListLayout.setBackgroundColor(Color.parseColor("#F0FFFF"));
             holder.head_subject.setTextColor(Color.parseColor("#000000"));
             holder.head_title.setTextColor(Color.parseColor("#000000"));
             holder.publisher.setTextColor(Color.parseColor("#000000"));

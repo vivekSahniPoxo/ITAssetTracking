@@ -1,14 +1,12 @@
 package com.example.itassettracking;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -48,42 +46,52 @@ public class AdapterPreviousAudit extends RecyclerView.Adapter<AdapterPreviousAu
 
         String date1 = separated[0];
         holder.language.setText(model.getTotal());
-        holder.publisher.setText(model.getRemarks());
+        holder.publisher.setText(model.getFound());
         holder.head_title.setText(date1);
         holder.head_subject.setText(model.getAuditor());
+        holder.notfound.setText(model.getNotFound());
         holder.ListLayout.setBackgroundColor(Color.parseColor("#C6CFEF"));
         holder.head_subject.setTextColor(Color.parseColor("#000000"));
         holder.head_title.setTextColor(Color.parseColor("#000000"));
         holder.publisher.setTextColor(Color.parseColor("#000000"));
         holder.language.setTextColor(Color.parseColor("#000000"));
+        holder.notfound.setTextColor(Color.parseColor("#000000"));
         holder.h4.setTextColor(Color.parseColor("#000000"));
         holder.h3.setTextColor(Color.parseColor("#000000"));
         holder.h2.setTextColor(Color.parseColor("#000000"));
         holder.h1.setTextColor(Color.parseColor("#000000"));
+        holder.h5.setTextColor(Color.parseColor("#000000"));
         holder.h1.setText("Auditor :");
         holder.h2.setText("Audit Date :");
-        holder.h3.setText("Remark :");
+        holder.h3.setText("Found :");
         holder.h4.setText("Total Item :");
+        holder.h5.setText("Not Found :");
+        holder.h5.setVisibility(View.VISIBLE);
+        holder.notfound.setVisibility(View.VISIBLE);
+        holder.view.setVisibility(View.VISIBLE);
 //       Change color if Search Found
-        if (model.getStatusAudit().matches( "Approved")) {
+        if (model.getStatusAudit().matches("Approved")) {
             holder.head_subject.setTextColor(Color.parseColor("#FFFFFF"));
             holder.publisher.setTextColor(Color.parseColor("#FFFFFF"));
             holder.language.setTextColor(Color.parseColor("#FFFFFF"));
-
-            holder.ListLayout.setBackgroundColor(Color.rgb(160,206,78));
+            holder.notfound.setTextColor(Color.parseColor("#FFFFFF"));
+            holder.ListLayout.setBackgroundColor(Color.rgb(160, 206, 78));
             holder.head_title.setTextColor(Color.parseColor("#FFFFFF"));
             holder.h4.setTextColor(Color.parseColor("#FFFFFF"));
             holder.h3.setTextColor(Color.parseColor("#FFFFFF"));
             holder.h2.setTextColor(Color.parseColor("#FFFFFF"));
             holder.h1.setTextColor(Color.parseColor("#FFFFFF"));
+            holder.h5.setTextColor(Color.parseColor("#FFFFFF"));
 
-        }
-        else {
+
+        } else {
             holder.ListLayout.setBackgroundColor(Color.parseColor("#C6CFCF"));
             holder.head_subject.setTextColor(Color.parseColor("#000000"));
             holder.head_title.setTextColor(Color.parseColor("#000000"));
             holder.publisher.setTextColor(Color.parseColor("#000000"));
             holder.language.setTextColor(Color.parseColor("#000000"));
+            holder.notfound.setTextColor(Color.parseColor("#000000"));
+
 
 
         }
@@ -99,7 +107,8 @@ public class AdapterPreviousAudit extends RecyclerView.Adapter<AdapterPreviousAu
         LinearLayout list_layout;
         CardView cardView, card_details;
         ConstraintLayout ListLayout;
-        TextView h1,h2,h3,h4;
+        TextView h1, h2, h3, h4, h5, notfound;
+        View view;
 
         public Myviewholder(@NonNull View itemView) {
             super(itemView);
@@ -118,10 +127,13 @@ public class AdapterPreviousAudit extends RecyclerView.Adapter<AdapterPreviousAu
             access_No = itemView.findViewById(R.id.Access_No);
             head_subject = itemView.findViewById(R.id.Head_subject);
             head_title = itemView.findViewById(R.id.Head_Tilte);
-            h1= itemView.findViewById(R.id.textView6);
-            h2= itemView.findViewById(R.id.textView7);
-            h3= itemView.findViewById(R.id.textView8);
-            h4= itemView.findViewById(R.id.textView9);
+            h1 = itemView.findViewById(R.id.textView6);
+            h2 = itemView.findViewById(R.id.textView7);
+            h3 = itemView.findViewById(R.id.textView8);
+            h4 = itemView.findViewById(R.id.textView9);
+            h5 = itemView.findViewById(R.id.textView10);
+            notfound = itemView.findViewById(R.id.Languag2);
+view = itemView.findViewById(R.id.view3);
 
         }
     }
